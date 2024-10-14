@@ -45,7 +45,3 @@ FinalPrice = Math.round(FinalPrice * 100) / 100;
 // ! OUTPUT
 // output prezzo con massimo 2 decimali
 alert(FinalPrice);
-const IsValidFinalPrice = !isNaN(Finalprice);
-if (!IsValidFinalPrice) {
-  alert(`hai sbagliato qualcosa nella compilazione riprova `);
-}
