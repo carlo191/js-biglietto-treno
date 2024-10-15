@@ -1,47 +1,34 @@
-/*
-Il programma dovrà chiedere all'utente il numero di chilometri che vuole percorrere e l'età del passeggero.
-Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio, secondo queste regole:
-- il prezzo del biglietto è definito in base ai km (0.21 € al km)
-- va applicato uno sconto del 20% per i minorenni
-- va applicato uno sconto del 40% per gli over 65.
-- L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo).
- Questo richiederà un minimo di ricerca.
-*/
+/*Scrivi un programma che stampi i numeri da 1 a 100,
+ma per i multipli di 3 stampi “Fizz” al posto del numero e per i multipli di 5 stampi Buzz.
+Per i numeri che sono sia multipli di 3 che di 5 stampi FizzBuzz.
+Prima di partire a scrivere codice poniamoci qualche domanda:
+Come faccio a sapere se un numero è divisibile per?
+Abbiamo visto qualcosa di particolare che possiamo usare?
+Consigli del giorno:
+1. scriviamo sempre prima dei commenti in italiano per capire cosa vogliamo fare
+2. proviamo ad immaginare le operazioni che vogliamo far svolgere al nostro programma così come lo faremmo "a mano" */
 
-// # PROCEDURA
+//inizializzo due variabili contenenti i valori iniziali e finali
 
-// ! RACCOLTA DATI
-// chiedere età passegero
-const AgePassenger = parseInt(prompt("Quanti anni hai?"));
-const IsValidAgePassenger = !isNaN(AgePassenger) && AgePassenger > 0;
-if (!IsValidAgePassenger) {
-  alert(`il valore non è coretto per favore riprova`);
+const startCicle = 1;
+const endCicle = 100;
+
+//stampa Fizz, Buzz o FizzBuzz se il numero è multiplo di 3, 5 o entrambi
+
+let result = "";
+
+for (let i = startCicle; i <= endCicle; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log("FizzBuzz");
+    result = "FizzBuzz";
+  } else if (i % 5 === 0) {
+    console.log("Buzz");
+    result = "Buzz";
+  } else if (i % 3 === 0) {
+    console.log("Fizz");
+    result = "Fizz";
+  } else {
+    console.log(i);
+    result = i;
+  }
 }
-// chiedere quanti km si vuole percorrere
-const KmPassenger = parseInt(prompt("Quanti km dovrai percorrere?"));
-const IsValidKmPassenger = !isNaN(KmPassenger) && KmPassenger > 0;
-if (!IsValidKmPassenger) {
-  alert(`il valore non è coretto per favore riprova`);
-}
-
-let Finalprice;
-let sconto;
-
-// ! ELABORAZIONE
-//il prezzo è ogni km 21 centesimi
-
-// se età minore di 18 sconto del 20%
-if (AgePassenger < 18) {
-  sconto = 0.6;
-}
-// se età maggiore di 65 sconto del 40%
-else if (AgePassenger >= 65) {
-  sconto = 0.8;
-} else {
-  sconto = 1;
-}
-FinalPrice = KmPassenger * 0.21 * sconto;
-FinalPrice = Math.round(FinalPrice * 100) / 100;
-// ! OUTPUT
-// output prezzo con massimo 2 decimali
-alert(FinalPrice);
